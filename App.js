@@ -1,21 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
 
-export default function App() {
+// スクリーンの読み込み
+import FirstScreen from './Screens/FirstScreen';
+import SecondScreen from './Screens/SecondScreen';
+import ThirdScreen from './Screens/ThirdScreen';
+
+const Stack = createStackNavigator();
+
+export default function lectureApp() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    < NavigationContainer >
+      <Stack.Navigator>
+        <Stack.Screen name="first" component={FirstScreen} />
+        <Stack.Screen name="second" component={SecondScreen} />
+        <Stack.Screen name="third" component={ThirdScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
